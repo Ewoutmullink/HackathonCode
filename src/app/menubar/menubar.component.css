@@ -1,0 +1,49 @@
+.menubar {
+  position: fixed;
+  top: 55px; /* Afstand van de bovenkant van het scherm */
+  right: 50px;
+  background-color: transparent;
+  padding: 0;
+  box-shadow: none;
+  border-radius: 0;
+  z-index: 1000;
+}
+
+.menubar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.menubar ul li {
+  position: relative; /* Zorgt ervoor dat de pseudo-elementen goed gepositioneerd zijn */
+  margin: 0 15px;
+}
+
+.menubar ul li a {
+  text-decoration: none;
+  color: #3c3c3c;
+  font-weight: bold;
+  font-size: 14px;
+  position: relative; /* Voor het pseudo-element */
+}
+
+/* De streep onder de link */
+.menubar ul li a::after {
+  content: ''; /* Pseudo-element zonder tekst */
+  position: absolute;
+  width: 0; /* Begin met een breedte van 0 */
+  height: 2px; /* Dikte van de streep */
+  bottom: -5px; /* Plaats de streep iets onder de tekst */
+  left: 50%; /* Start in het midden van het element */
+  background-color: #3c3c3c; /* Kleur van de streep */
+  transition: width 0.3s ease, left 0.3s ease; /* Zorgt voor een mooie animatie */
+}
+
+/* Animatie bij hover */
+.menubar ul li a:hover::after {
+  width: 100%; /* Breidt uit naar de volledige breedte van de link */
+  left: 0; /* Verplaatst naar de linkerzijde */
+}
+

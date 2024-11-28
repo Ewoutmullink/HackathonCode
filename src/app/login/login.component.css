@@ -1,0 +1,48 @@
+
+
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #DEDCCE;
+  height: 100%;
+}
+
+.mat-mdc-card-title, .mat-mdc-card-subtitle {
+  padding-left: 15px;
+}
+
+.header a, .header button {
+  color: #280f4b;
+  font-size: 1.125rem;
+  text-decoration: none;
+}
+
+.header__logo {
+  display: block;
+  grid-area: branding;
+}
+
+mat-card {
+  width: 400px;
+}
+
+.register-link {
+  margin-top: 10px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.loginText{
+ color: #280f4b
+}
+
+.button-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+}

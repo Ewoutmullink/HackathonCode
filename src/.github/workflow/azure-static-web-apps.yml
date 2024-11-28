@@ -1,0 +1,45 @@
+name: Deploy Angular App to Azure VM
+
+on:
+  push:
+    branches:
+      - main  # Pas aan indien u een andere branch gebruikt
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'  # Vervang door uw Node.js-versie
+
+      - name: Install Dependencies
+        working-directory: ./datalab-frontend
+        run: npm ci
+
+      - name: Build Angular App
+        working-directory: ./datalab-frontend
+        run: npm run build -- --prod
+
+      - name: Copy Files via SCP
+        uses: appleboy/scp-action@v0.1.5
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: "datalab-frontend/dist/my-angular-app/*"
+          target: "/var/www/my-angular-app"
+
+      - name: Restart Nginx
+        uses: appleboy/ssh-action@v0.1.5
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            sudo systemctl restart nginx

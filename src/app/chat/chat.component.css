@@ -1,0 +1,112 @@
+.chat-container {
+  position: fixed;
+  bottom: 0;
+  left: 50%; /* Plaats de container in het midden */
+  transform: translateX(-50%); /* Horizontale centrering */
+  width: 100%;
+  max-width: 800px; /* Beperkt de breedte van de chatcontainer */
+  height: 80%; /* Zorgt ervoor dat de container 80% van de schermhoogte gebruikt */
+  background: rgba(255, 255, 255, 0.2); /* Witte doorzichtige achtergrond */
+  backdrop-filter: blur(10px); /* Achtergrond blur effect */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); /* Schaduw voor diepte */
+  border-radius: 15px; /* Licht afgeronde hoeken */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Rand voor glas effect */
+  display: flex;
+  flex-direction: column;
+  padding: 15px; /* Padding aan de binnenkant */
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background-color: #DEDCCE; /* Achtergrondkleur van de hele browser */
+}
+
+.chat-window {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 10px; /* Padding aan de zijkanten */
+  background: rgba(255, 255, 255, 0.3); /* Witte doorzichtige achtergrond */
+  backdrop-filter: blur(10px); /* Achtergrond blur effect */
+  border-radius: 10px; /* Ronde hoeken */
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1); /* Lichte binnenste schaduw */
+  display: flex;
+  flex-direction: column; /* Berichten verticaal uitlijnen */
+}
+
+/* Berichtstijl voor zowel gebruiker als bot */
+.user-message,
+.bot-message {
+  display: flex;
+  max-width: 70%;
+  padding: 10px 15px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 1.5;
+  word-wrap: break-word; /* Lange woorden worden afgebroken */
+}
+
+/* Specifieke stijl voor berichten van de gebruiker */
+.user-message {
+  align-self: flex-end; /* Rechts uitlijnen */
+  background-color: rgba(0, 123, 255, 0.8); /* Blauwe achtergrond met transparantie */
+  color: #fff; /* Witte tekstkleur */
+  margin-right: 15px; /* Extra marge aan de rechterkant */
+  text-align: right; /* Tekst uitlijning naar rechts */
+}
+
+/* Specifieke stijl voor berichten van de bot */
+.bot-message {
+  align-self: flex-start; /* Links uitlijnen */
+  background-color: rgba(233, 236, 239, 0.8); /* Lichtgrijze achtergrond met transparantie */
+  color: #333; /* Donkere tekstkleur */
+  margin-left: 15px; /* Extra marge aan de linkerkant */
+  text-align: left; /* Tekst uitlijning naar links */
+}
+
+.chat-input {
+  display: flex;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.3); /* Witte doorzichtige achtergrond */
+  backdrop-filter: blur(10px); /* Achtergrond blur effect */
+  border-radius: 20px; /* Ronde hoeken */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Rand voor glas effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Schaduw voor diepte */
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  margin-right: 10px;
+  outline: none;
+  transition: border-color 0.3s ease;
+  background: rgba(255, 255, 255, 0.2); /* Witte doorzichtige achtergrond */
+  color: #333; /* Donkere tekstkleur */
+}
+
+.chat-input input:focus {
+  border-color: #007bff; /* Blauw bij focus */
+}
+
+.chat-input button {
+  background-color: rgba(0, 123, 255, 0.8); /* Blauwe doorzichtige achtergrond */
+  color: #fff; /* Witte tekst */
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.chat-input button:hover {
+  background-color: rgba(0, 86, 179, 0.8); /* Donkerdere blauw bij hover */
+}
+
+
+
+
